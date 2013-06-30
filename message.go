@@ -38,8 +38,8 @@ var (
 	MessageRegexp = regexp.MustCompile(reMessage)
 )
 
-// Message represents an IRC message. See RFC 1459 for a description of its
-// format and contents.
+// Message represents an IRC message. See RFC 1459 [2.3] for a description of
+// its format and contents.
 type Message struct {
 	data []byte
 	prefix []byte
