@@ -31,9 +31,10 @@ const (
 )
 
 var (
+	paramRegexp = regexp.MustCompile(reParam)
+	
 	NickRegexp = regexp.MustCompile(reNick)
 	ChanRegexp = regexp.MustCompile(reChan)
-	ParamRegexp = regexp.MustCompile(reParam)
 	MessageRegexp = regexp.MustCompile(reMessage)
 )
 
@@ -72,7 +73,7 @@ func ParseMessage(data []byte) (*Message, error) {
 		prefix = nil
 	}
 
-	params := ParamRegexp.FindAll(groups[3], -1)
+	params := paramRegexp.FindAll(groups[3], -1)
 	if params == nil {
 		params = [][]byte{}
 	}
